@@ -37,7 +37,7 @@ AI_PATH = [] # LIST FOR BFS PATH
 FRAMES_RAN = 0 
 DEATHS = 0
 WINS = 0
-GEN = 0 
+ATTEMPT = 0 
 STEPS = 0
 time_alive = 0
 
@@ -59,7 +59,7 @@ agent = QAgent(ROWS, COLS)
 def run_ai_step():
     global AI_POS
     global DEATHS
-    global GEN
+    global ATTEMPT
     global WINS
     global STEPS
     global time_alive
@@ -99,7 +99,7 @@ def run_ai_step():
         done = True # "Die" and start over
         time_alive = 0
         DEATHS += 1
-        GEN += 1
+        ATTEMPT += 1
 
     # Goal
     elif grid[new_r][new_c] == 3:
@@ -108,7 +108,7 @@ def run_ai_step():
         done = True
         time_alive = 0
         WINS += 1
-        GEN += 1
+        ATTEMPT += 1
         
     # Path
     elif grid[new_r][new_c] == 5:
@@ -124,7 +124,7 @@ def run_ai_step():
         # done = True # "Die" and start over
         # time_alive = 0
         # DEATHS += 1
-        # GEN += 1
+        # ATTEMPT += 1
 
     # Normal Path
     else:
@@ -375,7 +375,7 @@ while True:
         draw_text(f"AI toggle: g", 1590, 30)
         draw_text(f"WINS: {WINS}", 1590, 70)
         draw_text(f"DEATHS: {DEATHS}", 1590, 90)
-        draw_text(f"GENERATION: {GEN}", 1590, 110)
+        draw_text(f"ATTEMPTS: {ATTEMPT}", 1590, 110)
         draw_text(f"STEPS: {STEPS}", 1590, 130)
         # draw_text(f"TIME_ALIVE: {time_alive}", 1590, 150) # removed feature
 
